@@ -7,6 +7,10 @@ context('Funcionalidade Login', () => {
         
     });
 
+    afterEach(() => {
+        cy.screenshot()
+    });
+
     it('Login Realizado com Sucesso', () => {
         cy.get('#username').type('aluno_ebac@teste.com')
         cy.get('#password').type('teste@teste.com')
@@ -20,7 +24,7 @@ context('Funcionalidade Login', () => {
         cy.get('#username').type('aluno_ebac@testecom')
         cy.get('#password').type('teste@teste.com')
         cy.get('.woocommerce-form > .button').click()
-
+    
         cy.get('.woocommerce-error > li').should('contain', 'Erro: O usuário aluno_ebac@testecom não está registrado neste site.')
         
     });
